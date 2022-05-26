@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/sub-home">Home</router-link> |
       <router-link to="/sub-about">About</router-link>
     </div>
     <router-view />
@@ -9,8 +9,23 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({})
+import { defineComponent, onMounted } from 'vue'
+export default defineComponent({
+  setup() {
+    onMounted(() => {
+      console.log('###')
+      // 监听基座下发的数据变化
+      const w = window as Record<string, any>
+      w.microApp.addDataListener((data: Record<string, any>) => {
+        console.log(data)
+        // // 当基座下发跳转指令时进行跳转
+        // if (data.path) {
+        //   router.push(data.path)
+        // }
+      })
+    })
+  }
+})
 </script>
 
 <style>

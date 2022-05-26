@@ -7,9 +7,18 @@
     <router-view />
   </div>
 </template>
+
 <script>
 export default {
-
+  created() {
+    window.microApp.addDataListener((data) => {
+      console.log(data)
+      // // 当基座下发跳转指令时进行跳转
+      // if (data.path) {
+      //   router.push(data.path)
+      // }
+    })
+  }
 }
 </script>
 
