@@ -4,18 +4,26 @@
     <!--
       name(必传)：应用名称
       url(必传)：应用地址，会被自动补全为http://localhost:3000/index.html
-      baseroute(可选)：基座应用分配给子应用的基础路由，就是上面的 `/my-page`
-     -->
-    <micro-app
-      name="app1"
+      baseroute(可选)：基座应用分配给子应用的基础路由，就是上面的 `/main`
       url="http://localhost:20881/vue3"
-      baseroute="/main"
-    ></micro-app>
+     -->
+    <micro-app name="app1" :url="url" baseroute="/main"></micro-app>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue } from 'vue-class-component'
+import { defineComponent } from 'vue'
+import config from '../config'
 
-export default class Home extends Vue {}
+export default defineComponent({
+  name: 'About',
+
+  setup() {
+    const url = `${config.vue3}/vue3`
+
+    return {
+      url
+    }
+  }
+})
 </script>

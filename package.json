@@ -1,0 +1,12 @@
+{
+  "name": "micro-app",
+  "version": "1.0.0",
+  "description": "micro-app 案例",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "main": "cd main-portal && yarn serve",
+    "vue3": "cd sub-one && yarn serve",
+    "vue2": "cd sub-two && yarn serve"
+  }
+}
