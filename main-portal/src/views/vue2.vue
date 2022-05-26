@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>vue 2 page</h1>
-    <micro-app name="app-two" :url="url" baseroute="/main"></micro-app>
+    <micro-app name="app-two" :url="url" baseroute="/main/vue2"></micro-app>
   </div>
 </template>
 

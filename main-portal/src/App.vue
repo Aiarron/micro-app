@@ -1,38 +1,92 @@
 <template>
-  <div>
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">vue3版本</router-link>
-      <router-link to="/vue2">vue2版本</router-link>
+  <div class="app-container">
+    <div class="header-content">header</div>
+    <div class="app-main">
+      <ul class="app-side">
+        <li
+          v-for="(item, index) in links"
+          :key="`link-${index}`"
+          @click="handleRoute(item)"
+        >
+          {{ item.text }}
+        </li>
+      </ul>
+      <div class="app-content">
+        <router-view />
+      </div>
     </div>
-    <router-view />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-export default defineComponent({})
+import microApp from '@micro-zoe/micro-app'
+import { useRouter } from 'vue-router'
+export default defineComponent({
+  setup() {
+    const links = [
+      {
+        name: '',
+        url: '/',
+        text: 'Home'
+      },
+      {
+        name: 'app1',
+        url: '/about',
+        text: 'vue3版本'
+      },
+      {
+        name: 'app-two',
+        url: '/vue2',
+        text: 'vue2版本'
+      }
+    ]
+    const route = useRouter()
+    const handleRoute = (item: { name: string; url: string; text: string }) => {
+      console.log(item)
+      // if (!item.name) {
+      //   route.push(item.url)
+      //   return
+      // }
+      // microApp.setData(item.name, { path: item.url })
+      microApp.setData('app1', { path: '/about' })
+    }
+
+    return {
+      links,
+      handleRoute
+    }
+  }
+})
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<style scoped>
+body {
+  background: #f0f0f0;
 }
-
-#nav {
-  padding: 30px;
+.app-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.header-content {
+  height: 40px;
+  background-color: #333;
+  color: #fff;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.app-side {
+  width: 200px;
+  background-color: #fff;
+}
+.app-main {
+  flex: 1;
+  display: flex;
+}
+.app-content {
+  flex: 1;
+  margin: 20px;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 20px;
 }
 </style>

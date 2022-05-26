@@ -7,7 +7,7 @@
       baseroute(可选)：基座应用分配给子应用的基础路由，就是上面的 `/main`
       url="http://localhost:20881/vue3"
      -->
-    <micro-app name="app1" :url="url" baseroute="/main"></micro-app>
+    <micro-app name="app1" :url="url" baseroute="/main/about"></micro-app>
   </div>
 </template>
 
