@@ -1,7 +1,7 @@
 const { name } = require("./package.json");
 
 module.exports = {
-  publicPath: "/vue3",
+  publicPath: "/vue3/",
   // 输出文件目录
   outputDir: name,
   // eslint-loader 是否在保存的时候检查

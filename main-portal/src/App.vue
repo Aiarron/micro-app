@@ -32,7 +32,7 @@ export default defineComponent({
       },
       {
         name: 'app1',
-        url: '/about',
+        url: '/vue3',
         text: 'vue3版本'
       },
       {
@@ -43,13 +43,13 @@ export default defineComponent({
     ]
     const route = useRouter()
     const handleRoute = (item: { name: string; url: string; text: string }) => {
-      console.log(item)
+      route.push(item.url)
       // if (!item.name) {
       //   route.push(item.url)
       //   return
       // }
       // microApp.setData(item.name, { path: item.url })
-      microApp.setData('app1', { path: '/about' })
+      // microApp.setData('app1', { path: '/about' })
     }
 
     return {

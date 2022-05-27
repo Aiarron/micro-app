@@ -8,7 +8,7 @@ const routes: Array<RouteRecordRaw> = [
     component: Home
   },
   {
-    path: '/about/:page*',
+    path: '/vue3/:page*',
     name: 'About',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

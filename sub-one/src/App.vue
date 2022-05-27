@@ -13,11 +13,11 @@ import { defineComponent, onMounted } from 'vue'
 export default defineComponent({
   setup() {
     onMounted(() => {
-      console.log('###')
       // 监听基座下发的数据变化
       const w = window as Record<string, any>
+      console.log(w.microApp)
       w.microApp.addDataListener((data: Record<string, any>) => {
-        console.log(data)
+        console.log(data, '#########')
         // // 当基座下发跳转指令时进行跳转
         // if (data.path) {
         //   router.push(data.path)
