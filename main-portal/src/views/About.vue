@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>This is an main apply page</h1>
+    <h1>This is an main about apply page</h1>
     <!--
       name(必传)：应用名称
       url(必传)：应用地址，会被自动补全为http://localhost:3000/index.html
@@ -13,6 +13,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+
 import config from '../config'
 
 export default defineComponent({

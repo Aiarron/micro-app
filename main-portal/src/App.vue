@@ -28,28 +28,31 @@ export default defineComponent({
       {
         name: '',
         url: '/',
-        text: 'Home'
+        text: 'Home',
+        microUrl: ''
       },
       {
         name: 'app1',
         url: '/vue3',
-        text: 'vue3版本'
+        text: 'vue3版本',
+        microUrl: '/sub-home'
       },
       {
         name: 'app-two',
         url: '/vue2',
-        text: 'vue2版本'
+        text: 'vue2版本',
+        microUrl: '/sub-two-home'
       }
     ]
     const route = useRouter()
-    const handleRoute = (item: { name: string; url: string; text: string }) => {
-      route.push(item.url)
-      // if (!item.name) {
-      //   route.push(item.url)
-      //   return
-      // }
-      // microApp.setData(item.name, { path: item.url })
-      // microApp.setData('app1', { path: '/about' })
+    const handleRoute = (item: {
+      name: string
+      url: string
+      text: string
+      microUrl: string
+    }) => {
+      route.push(item.url) // 跳转至主应用
+      microApp.setData(item.name, { path: item.microUrl }) // 主应用下发数据控制由子应用控制跳转
     }
 
     return {

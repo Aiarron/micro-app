@@ -10,14 +10,15 @@
 
 <script>
 export default {
-  created() {
+  mounted() {
+    // 监听基座下发的数据变化
     window.microApp.addDataListener((data) => {
-      console.log(data)
-      // // 当基座下发跳转指令时进行跳转
-      // if (data.path) {
-      //   router.push(data.path)
-      // }
-    })
+      // 解决当前的路由如果一直push会造成路由的冗余
+      if (data.path === this.$route.path) {
+        return
+      }
+      this.$router.push(data.path)
+    }, true)
   }
 }
 </script>
